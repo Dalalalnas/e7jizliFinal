@@ -1,0 +1,57 @@
+<%= form_for(@booking) do |f| %>
+  <% if @booking.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@booking.errors.count, "error") %> prohibited this booking from being saved:</h2>
+
+      <ul>
+      <% @booking.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :bdateMade %><br>
+    <%= f.date_select :bdateMade %>
+  </div>
+  <div class="field">
+    <%= f.label :numofpeople %><br>
+    <%= f.number_field :numofpeople %>
+  </div>
+  <div class="field">
+    <%= f.label :beventdate %><br>
+    <%= f.date_select :beventdate %>
+  </div>
+  <div class="field">
+    <%= f.label :beventtype %><br>
+    <%= f.text_field :beventtype %>
+  </div>
+  <div class="field">
+    <%= f.label :bstime %><br>
+    <%= f.number_field :bstime %>
+  </div>
+  <div class="field">
+    <%= f.label :bcompleted %><br>
+    <%= f.text_field :bcompleted %>
+  </div>
+  <div class="field">
+    <%= f.label :active_status %><br>
+    <%= f.check_box :active_status %>
+  </div>
+  <div class="field">
+    <%= f.label :user_id %><br>
+    <%= f.number_field :user_id %>
+  </div>
+  <div class="field">
+    <%= f.label :restaurant_id %><br>
+    <%= f.number_field :restaurant_id %>
+  </div>
+  <div class="field">
+    <%= f.label :catering_id %><br>
+    <%= f.number_field :catering_id %>
+  </div>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+<% end %>

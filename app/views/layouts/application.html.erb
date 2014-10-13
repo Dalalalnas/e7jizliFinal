@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<title>E7jizli</title>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<%= csrf_meta_tags %>
+
+		<%= javascript_include_tag "jquery" %>
+		<%= stylesheet_link_tag "application"%>
+		<%= stylesheet_link_tag "bootstrap"%>
+		<%= stylesheet_link_tag "simple-sidebar"%>
+		<%= stylesheet_link_tag "style"%>
+
+		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	<head>
+
+	</head>
+	<body>
+		<!-- Sidebar -->
+		<header>
+			<center><%= link_to image_tag("Logo.jpg",:alt=>"E7jizli", :size => "260x200", :class => 'logo').html_safe, root_path%> </center>
+
+			
+			<div id="social">
+			<a href="https://twitter.com/Dalnasrallah" target="_blank"><div class="twitter-hover social-slide"></div></a>
+			<div class="facebook-hover social-slide"></div>
+			<div class="instagram-hover social-slide"></div>
+			<ul>
+<%=form_tag sessions_path do %>
+<table>
+   <tr>
+   <td><%=label_tag :name %></td>
+   <td><%=text_field_tag :name,params[:name] %>
+   
+   <td><%=label_tag :password %></td>
+   <td><%=password_field_tag :password %>
+   </tr>
+   <tr>
+   <td><%=submit_tag "Sign in" %></td>
+
+   </tr>
+   </table>
+    <a href="/users/new/">or Sign Up</a> </font>
+
+   <%end%>
+   
+         
+			</div>
+		</header>
+		<div id="wrapper">
+			<div id="sidebar-wrapper">
+				<ul class="sidebar-nav">
+					<li class="sidebar-brand">
+						<!-- START HEADER -->
+						<!-- START MAIN NAVIGATION -->
+						<div class="menu classic" id="nav-container">
+							<ul id="nav" class="menu">
+								<li>
+									<a href="/pages/home">HOME</a>
+									<ul class="sub-menu"></ul>
+								</li>
+								<li>
+									<a href="/restaurants/">Restaurants</a>
+									<ul class="sub-menu"></ul>
+								</li>
+								<li>
+									<a href="/caterings/">Home Catering</a>
+									<ul class="sub-menu"></ul>
+								</li>
+								<li>
+									<a href="/bookings/">Book NOW</a>
+									<ul class="sub-menu"></ul>
+								</li>
+								<li>
+									<a href="#">Contact Us</a>
+									<ul class="sub-menu"></ul>
+								</li>
+								<li>
+									<a href="#">Random Wheel</a>
+									<ul class="sub-menu"></ul>
+								</li>
+								<li>
+									<a href="#">Add your Restaurant</a>
+									<ul class="sub-menu">
+
+									</ul>
+								</li>
+								<!-- END MAIN NAVIGATION -->
+								<div id="header-shadow"></div>
+								<div id="menu-shadow"></div>
+						</div>
+			</div>
+
+			<!-- END HEADER -->
+
+			<!-- Page Content -->
+			<div id="page-content-wrapper">
+				<div id="main-content">
+					<%= yield %>
+				</div>
+				<!-- /#page-content-wrapper -->
+
+
+				<footer id="footer">
+					<footer id="innerFooter">
+						<div class="splitter"></div>
+						<ul>
+							<li>
+								<div class="text">
+									<h4>About</h4>
+									<div>
+									<font color="white"> E7jizli matches people looking for a place to eat at a restaurant. We provide you with free, real-time reservations. Instead of phoning the restaurant directly you can visit E7jizli hassle free. <a href="/pages/about/">Read more</a> </font>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="text">
+									<h4>Contact</h4>
+									<div>
+
+										<form class="form">
+
+											<p class="name">
+												<input type="text" name="name" id="name" placeholder="Dalal Aln" />
+												<label for="name">Name</label>
+											</p>
+
+											<p class="email">
+												<input type="text" name="email" id="email" placeholder="mail@example.com" />
+												<label for="email">Email</label>
+											</p>
+
+											<p class="text">
+												<textarea name="text" placeholder="We'll get back to you ASAP" />
+												</textarea>
+											</p>
+
+											<p class="submit">
+												<input type="submit" value="Send" />
+											</p>
+										</form>
+									</div>
+								</div>
+							</li>
+							<li>
+								<div class="text">
+									<h4>Privacy & terms</h4>
+									<div>
+									<font color="white"> Your privacy is very important to us. Please read more about our terms and conditions<a href="#">Read more</a> </font>
+									</div>
+								</div>
+							</li>
+						</ul>
+
+						<div class="bar">
+							<div class="bar-wrap">
+								<div class="copyright">
+									E7jizli &copy; | 2014 All Rights Reserved
+								</div>
+								<ul class="links">
+									<!-- footer menu -->
+									<li>
+										<a href="#">Home</a>
+									</li>
+									<li>
+										<a href="#">License</a>
+									</li>
+									<li>
+										<a href="#">Contact Us</a>
+									</li>
+									<li>
+										<a href="#">Advertise</a>
+									</li>
+									<li>
+										<a href="/pages/about/">About Us</a>
+									<ul class="sub-menu"></ul>
+								</li>
+								</ul>
+							</div>
+							<div class="clear"></div>
+						</div>
+			</div>
+			</footer>
+		</div>
+	</body>
+</html>
+<li>
+									

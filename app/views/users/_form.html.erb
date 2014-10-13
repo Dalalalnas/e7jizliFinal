@@ -1,0 +1,127 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<%= csrf_meta_tags %>
+
+		<%= javascript_include_tag "jquery" %>
+		<%= stylesheet_link_tag "application"%>
+	
+		
+
+
+		<!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+		<!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+		<!--[if lt IE 9]>
+		<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+		<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+	</head>
+	<head>
+
+	</head>
+	<body>
+    <legend>Personal Info</legend>
+
+<%= form_for(@user) do |f| %>
+  <% if @user.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(@user.errors.count, "error") %> prohibited this user from being saved:</h2>
+
+      <ul>
+      <% @user.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :FirstName %><br>
+    <%= f.text_field :fname %>
+  </div>
+  <div class="field">
+    <%= f.label :LastName %><br>
+    <%= f.text_field :lname %>
+  </div>
+  
+    <div class="field">
+    <%= f.label :email%><br>
+    <%= f.text_field :email %>
+  </div>
+  
+     <div class="field">
+    <%= f.label :password%><br>
+    <%= f.text_field :password %>
+  </div>
+  
+     <div class="field">
+    <%= f.label :password_confirmation%><br>
+    <%= f.text_field :password_confirmation %>
+  </div>
+  
+  <div class="field">
+    <%= f.label :DateofBirth %><br>
+    <%= f.date_select :dob %>
+  </div>
+  
+ <div class="field">
+    <%= f.label :Gender %><br />
+    <%= f.select :gender, ["Male","Female"] %> 
+  </div>
+
+  <div class="field">
+    <%= f.label :number %><br>
+    <%= f.text_field :number %>
+  </div>
+  
+  <script type="text/javascript">
+ function DrawCaptcha()
+  {
+  var a = Math.ceil(Math.random() * 6)+ '';
+  var b = Math.ceil(Math.random() * 6)+ '';
+  var c = Math.ceil(Math.random() * 6)+ '';
+  var d = Math.ceil(Math.random() * 6)+ '';
+  var e = Math.ceil(Math.random() * 6)+ '';
+  var f = Math.ceil(Math.random() * 6)+ '';
+  var g = Math.ceil(Math.random() * 6)+ '';
+  var code = a + ' ' + b + ' ' + ' ' + c + ' ' + d + ' ' + e + ' '+ f ;
+  document.getElementById("txtCaptcha").value = code
+  }
+</script>
+ <script type="text/javascript">
+// Remove the spaces from the entered and generated code
+ function removeSpaces(string){
+  return string.split(' ').join('');
+ }
+</script>
+</head>
+<body onload="DrawCaptcha();">
+ <form name="value">
+ Enter Numbers As Shown to confirm you're not a ROBOT:
+<input type="text" id="txtCaptcha" style="background-image:url(images/cap.JPG); text-align:center; border:none; font-weight: bold; font-family:Modern" />
+ <input type="button" id="btnrefresh" value="Refresh" onclick="DrawCaptcha();" />
+ <input type="text"  oninput="check(this)" required  id="txtInput"/> 
+ </form>
+<script>
+function check(input) {
+  var cap =removeSpaces(document.getElementById('txtCaptcha').value);
+if (input.value != cap ) {
+  input.setCustomValidity("Error in code Please Check AND TYPE AGAIN!");
+  } else {
+  input.setCustomValidity('');
+  }
+  }
+ </script>
+
+          </table
+
+   
+  <div class="actions">
+      <input type="submit" value="Signup">
+  </div>
+  
+
+<% end %>
+</body>

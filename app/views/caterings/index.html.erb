@@ -1,0 +1,33 @@
+<h1>Listing caterings</h1>
+
+<table>
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Picture</th>
+      <th>Lowprice</th>
+      <th>Highprice</th>
+      <th>Menu</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @caterings.each do |catering| %>
+      <tr>
+        <td><%= catering.name %></td>
+        <td><%= catering.picture %></td>
+        <td><%= catering.lowprice %></td>
+        <td><%= catering.highprice %></td>
+        <td><%= catering.menu %></td>
+        <td><%= link_to 'Show', catering %></td>
+        <td><%= link_to 'Edit', edit_catering_path(catering) %></td>
+        <td><%= link_to 'Destroy', catering, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Catering', new_catering_path %>
